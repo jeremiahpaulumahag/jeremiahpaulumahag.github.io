@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio | JP Umahag</title>
+<link rel="stylesheet" href="chatbot.css">
+<style>
+:root{--bg:#120f1f;--panel:rgba(17,17,17,.7);--white:#fff;--silver:#e5e5e5;--muted:#9ca3af;--gold:#f59e0b;--line:rgba(229,229,229,.22)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse 70% 50% at 85% 5%,rgba(124,58,237,.16),transparent 60%),var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif;line-height:1.7}
+.wrap{width:min(1150px,calc(100% - 40px));margin:auto}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px max(20px,calc((100% - 1150px)/2));background:rgba(17,17,17,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.logo{font-weight:700;font-size:18px;color:#fff;text-decoration:none}.logo span{color:var(--silver)}
+.links{display:flex;align-items:center;gap:18px;list-style:none;margin:0;padding:0}.links a,summary{color:var(--silver);font-size:13px;text-decoration:none}.links a:hover,summary:hover{color:var(--gold)}
+.dropdown{position:relative}.dropdown summary{cursor:pointer;list-style:none}.dropdown summary::-webkit-details-marker{display:none}.social-menu{position:absolute;right:0;top:28px;min-width:150px;padding:8px;background:#191522;border:1px solid var(--line);border-radius:8px}.social-menu a{display:block;padding:7px 10px}
+.button{display:inline-block;padding:10px 17px;border-radius:8px;background:var(--silver);color:#111!important;font-weight:700}
+.hero{padding:90px 0 55px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase}.hero h1{max-width:800px;margin:14px 0;font-size:clamp(42px,7vw,76px);line-height:1.02;letter-spacing:-3px}.hero p{max-width:700px;color:var(--silver);font-size:18px}
+.section{padding:50px 0 70px}.section h2{font-size:clamp(25px,4vw,38px);margin:48px 0 14px}.section h2:first-of-type{margin-top:0}
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:46px}.filter-btn{padding:9px 15px;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--silver);cursor:pointer;font:600 13px inherit;transition:all .3s ease}.filter-btn:hover{border-color:var(--gold);color:var(--gold)}.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#111}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin:25px 0 0}.card{position:relative;overflow:hidden;padding:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .35s ease,border-color .3s ease,box-shadow .3s ease}.card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 32px rgba(0,0,0,.3)}.card.hidden{display:none}.thumb{position:relative}.thumb img{display:block;width:100%;height:220px;object-fit:cover}.metric{position:absolute;top:12px;right:12px;background:rgba(245,158,11,.95);color:#111;font-weight:700;font-size:11px;padding:4px 10px;border-radius:20px;z-index:2}.card-body{padding:20px}.card h3{margin:0 0 10px;font-size:17px;line-height:1.35}.card p{margin:0 0 14px;color:var(--silver);font-size:14px;line-height:1.6}.badges{display:flex;flex-wrap:wrap;gap:7px}.badge{padding:3px 9px;border:1px solid rgba(168,85,247,.4);border-radius:12px;color:#d8b4fe;background:rgba(168,85,247,.2);font-size:11px;font-weight:600}
+.cta{max-width:700px;margin:48px auto 0;padding:36px 25px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-align:center}.cta h2{margin:0 0 14px}.cta p{margin:0 0 22px;color:var(--silver)}
+footer{padding:40px 0 20px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--muted)}footer a{color:var(--gold);text-decoration:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1)}.reveal.visible{opacity:1;transform:translateY(0)}.reveal:nth-child(2){transition-delay:.1s}.reveal:nth-child(3){transition-delay:.2s}.reveal:nth-child(4){transition-delay:.3s}.reveal:nth-child(5){transition-delay:.4s}.reveal:nth-child(6){transition-delay:.5s}
+.lightbox{display:none;position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.95);align-items:center;justify-content:center;padding:25px}.lightbox.open{display:flex}.lightbox figure{max-width:90vw;max-height:90vh;margin:0;text-align:center}.lightbox img{max-width:100%;max-height:80vh;object-fit:contain}.lightbox figcaption{color:var(--silver);margin-top:12px;font-size:14px}.close{position:fixed;top:18px;right:28px;z-index:21;color:#fff;font-size:34px;cursor:pointer;transition:color .3s ease}.close:hover{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+<link rel="stylesheet" href="chatbot.css">
+
+</head>
+<body>
+<nav><a class="logo" href="index.html">JP <span>Umahag</span></a><ul class="links"><li><a href="clients.html">Clients</a></li><li><a href="services.html">Services</a></li><li><a href="case-study.html">Case Study</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#setup">Setup</a></li><li><details class="dropdown"><summary>Socials</summary><div class="social-menu"><a href="https://www.linkedin.com/in/jpumahag/">LinkedIn</a><a href="https://github.com/jpumahag">GitHub</a></div></details></li></ul></nav>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">PORTFOLIO & PROOF OF WORK</div><h1>Real Estate Operations, CRM Systems & Listing Media Showcase</h1><p>Verified operational artifacts, transaction tracking, CRMLS entries, and AI-driven media post-production for U.S. real estate brokerages and professional real estate media companies.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="filter-bar"><button class="filter-btn active" data-filter="all">All Work</button><button class="filter-btn" data-filter="ops">Real Estate Operations</button><button class="filter-btn" data-filter="crm">CRM & Portals</button><button class="filter-btn" data-filter="media">Media & AI Post-Production</button><button class="filter-btn" data-filter="marketing">Marketing & Social</button></div><h2>Real Estate Operations & Systems</h2>
+<div class="grid">
+<article class="card reveal" data-category="ops" data-caption="C.A.R. ZipForm & DocuSign Transaction Workflows"><div class="thumb"><img src="images/portfolio/car-zipform.png" alt="C.A.R. ZipForm & DocuSign Transaction Workflows"><span class="metric">100% Contract Compliance</span></div><div class="card-body"><h3>C.A.R. ZipForm & DocuSign Transaction Workflows</h3><p>Preparation and routing of California Association of REALTORS (C.A.R.) purchase agreements, disclosures, DocuSign e-signatures, and RentSpree tenant screening.</p><div class="badges"><span class="badge">C.A.R.</span><span class="badge">ZipForm</span><span class="badge">DocuSign</span><span class="badge">RentSpree</span></div></div></article>
+<article class="card reveal" data-category="ops" data-caption="CRMLS Matrix Listing Entry & Data Management"><div class="thumb"><img src="images/portfolio/crmls-matrix.png" alt="CRMLS Matrix Listing Entry & Data Management"><span class="metric">Active MLS Admin</span></div><div class="card-body"><h3>CRMLS Matrix Listing Entry & Data Management</h3><p>Complete listing creation in CRMLS Matrix, metadata configuration, photo sequencing, syndicate syncing, and status lifecycle management.</p><div class="badges"><span class="badge">CRMLS Matrix</span><span class="badge">MLS Entry</span><span class="badge">Property Syndication</span></div></div></article>
+<article class="card reveal" data-category="ops" data-caption="Google Workspace Operations & Task Tracker"><div class="thumb"><img src="images/portfolio/task-tracker.png" alt="Google Workspace Operations & Task Tracker"><span class="metric">Operational Efficiency</span></div><div class="card-body"><h3>Google Workspace Operations & Task Tracker</h3><p>Custom-built operational task management systems in Google Workspace tracking transaction milestones, daily priorities, and client deliverables.</p><div class="badges"><span class="badge">Google Workspace</span><span class="badge">Sheets</span><span class="badge">Task Management</span><span class="badge">SOPs</span></div></div></article>
+</div>
+<h2>CRM, Lead Management & Portals</h2>
+<div class="grid">
+<article class="card reveal" data-category="crm" data-caption="GoHighLevel (GHL) CRM & Pipeline Dashboard"><div class="thumb"><img src="images/portfolio/gohighlevel-dashboard.png" alt="GoHighLevel (GHL) CRM & Pipeline Dashboard"><span class="metric">Automated Pipelines</span></div><div class="card-body"><h3>GoHighLevel (GHL) CRM & Pipeline Dashboard</h3><p>Comprehensive pipeline administration in GoHighLevel, including lead stage automation, database segmentation, and multi-channel follow-up tracking.</p><div class="badges"><span class="badge">GoHighLevel</span><span class="badge">CRM</span><span class="badge">Pipeline Automation</span></div></div></article>
+<article class="card reveal" data-category="crm" data-caption="Zillow Premier Agent Profile & Review Admin"><div class="thumb"><img src="images/portfolio/zillow-agent.png" alt="Zillow Premier Agent Profile & Review Admin"><span class="metric">5.0 * Client Rating</span></div><div class="card-body"><h3>Zillow Premier Agent Profile & Review Admin</h3><p>Administrative management of Zillow Premier Agent profiles, active listing syndication, and systematic post-closing review collection.</p><div class="badges"><span class="badge">Zillow Premier Agent</span><span class="badge">Profile Admin</span><span class="badge">Reputation</span></div></div></article>
+</div>
+<h2>Real Estate Media & AI Post-Production</h2>
+<div class="grid">
+<article class="card reveal" data-category="media" data-caption="Adobe Lightroom Classic Photo QA & Color Correction"><div class="thumb"><img src="images/portfolio/lightroom-qa-interior1.png" alt="Adobe Lightroom Classic Photo QA & Color Correction"><span class="metric">100% Media QA Accuracy</span></div><div class="card-body"><h3>Adobe Lightroom Classic Photo QA & Color Correction</h3><p>Multi-point photo quality control inside Adobe Lightroom Classic-inspecting exposure, color temperature balance, and perspective alignment for Oregon MLS listings.</p><div class="badges"><span class="badge">Lightroom Classic</span><span class="badge">Photo QA</span><span class="badge">Color Balance</span><span class="badge">Oregon MLS</span></div></div></article>
+<article class="card reveal" data-category="media" data-caption="Lightroom Interior Retouching & Highlight Recovery"><div class="thumb"><img src="images/portfolio/lightroom-qa-interior2.png" alt="Lightroom Interior Retouching & Highlight Recovery"><span class="metric">Pro Media Polish</span></div><div class="card-body"><h3>Lightroom Interior Retouching & Highlight Recovery</h3><p>Advanced shadow lifting, highlight recovery, and window pulls on raw real estate interior captures to achieve magazine-quality listing assets.</p><div class="badges"><span class="badge">Lightroom Classic</span><span class="badge">Photoshop</span><span class="badge">Interior Editing</span></div></div></article>
+<article class="card reveal" data-category="media" data-caption="CubiCasa Schematic Floor Plan Processing"><div class="thumb"><img src="images/portfolio/cubicasa-floorplan.png" alt="CubiCasa Schematic Floor Plan Processing"><span class="metric">99%+ Layout Accuracy</span></div><div class="card-body"><h3>CubiCasa Schematic Floor Plan Processing</h3><p>Processing video scans into formatted 2D schematic floor plans with precise room dimensions and layout drafting for Oregon MLS property launches.</p><div class="badges"><span class="badge">CubiCasa</span><span class="badge">Floor Plans</span><span class="badge">2D Drafting</span><span class="badge">Oregon MLS</span></div></div></article>
+<article class="card reveal" data-category="media" data-caption="Higgsfield AI Virtual Twilight Processing"><div class="thumb"><img src="images/portfolio/higgsfield-twilight-focus.png" alt="Higgsfield AI Virtual Twilight Processing"><span class="metric">AI Day-to-Dusk</span></div><div class="card-body"><h3>Higgsfield AI Virtual Twilight Processing</h3><p>Utilizing the Higgsfield AI Nano Banana Pro model to transform standard daylight exterior photos into dramatic, high-converting virtual twilight shots.</p><div class="badges"><span class="badge">Higgsfield AI</span><span class="badge">Virtual Twilight</span><span class="badge">Day-to-Dusk</span><span class="badge">Post-Production</span></div></div></article>
+</div>
+<h2>Marketing & Social Media Growth</h2>
+<div class="grid">
+<article class="card reveal" data-category="marketing" data-caption="TikTok Short-Form Video Growth & Real Estate Content"><div class="thumb"><img src="images/portfolio/tiktok-growth.png" alt="TikTok Short-Form Video Growth & Real Estate Content"><span class="metric">Organic Reach Growth</span></div><div class="card-body"><h3>TikTok Short-Form Video Growth & Real Estate Content</h3><p>Editing, planning, and publishing high-performing short-form video tours and market updates on TikTok and Instagram Reels for top-producing agents.</p><div class="badges"><span class="badge">TikTok</span><span class="badge">Instagram Reels</span><span class="badge">CapCut</span><span class="badge">Short-Form Video</span></div></div></article>
+<article class="card reveal" data-category="marketing" data-caption="Canva Design Projects & Marketing Collateral"><div class="thumb"><img src="images/portfolio/canva-projects.png" alt="Canva Design Projects & Marketing Collateral"><span class="metric">Multi-Asset Creation</span></div><div class="card-body"><h3>Canva Design Projects & Marketing Collateral</h3><p>Creation of print and digital marketing suites, including Just Listed, Just Sold, and Open House flyers, digital packets, and Canva templates.</p><div class="badges"><span class="badge">Canva</span><span class="badge">Photoshop</span><span class="badge">Property Flyers</span><span class="badge">Social Graphics</span></div></div></article>
+</div>
+<div class="cta reveal"><h2>Ready to Streamline Your Real Estate Operations?</h2><p>Let's organize your CRM pipelines, transaction workflows, and listing media.</p><a class="button" href="index.html#contact">Book a Discovery Call</a></div>
+</div></section></main>
+<footer><div class="wrap">&copy; 2026 Jeremiah Paul Umahag &middot; <a href="index.html">Back to home</a></div></footer>
+<div class="lightbox" id="lightbox"><span class="close" aria-label="Close">&times;</span><figure><img id="lightbox-image" src="" alt=""><figcaption id="lightbox-caption"></figcaption></figure></div>
+<script>
+const cards=document.querySelectorAll('.card'),buttons=document.querySelectorAll('.filter-btn');buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;cards.forEach(c=>c.classList.toggle('hidden',f!=='all'&&c.dataset.category!==f))}));const lightbox=document.querySelector('#lightbox'),lbImage=document.querySelector('#lightbox-image'),lbCaption=document.querySelector('#lightbox-caption');cards.forEach(c=>c.addEventListener('click',()=>{const i=c.querySelector('img');lbImage.src=i.src;lbImage.alt=i.alt;lbCaption.textContent=c.dataset.caption;lightbox.classList.add('open')}));document.querySelector('.close').addEventListener('click',()=>lightbox.classList.remove('open'));lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.classList.remove('open')});document.addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('open')});const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
+</script>
+</script>
+<!-- AI Chatbot Widget -->
+<button class="ai-chat-launcher" type="button" aria-label="Open Jeremiah's AI Assistant" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.8 8.8 0 0 1-3.7-.8L4 20l1.1-3.4A7.4 7.4 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/>
+    <path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"/>
+  </svg>
+</button>
+
+<section class="ai-chat-window" aria-label="Jeremiah's AI Assistant">
+  <header class="ai-chat-header">
+    <div>
+      <div class="ai-chat-title">Jeremiah's AI Assistant</div>
+      <span class="ai-chat-status">Here to help with your media needs</span>
+    </div>
+    <button class="ai-chat-close" type="button" aria-label="Close chat">&times;</button>
+  </header>
+  <div class="ai-chat-messages" role="log" aria-live="polite"></div>
+  <form class="ai-chat-form">
+    <input class="ai-chat-input" type="text" autocomplete="off" placeholder="Ask about services or projects..." aria-label="Message">
+    <button class="ai-chat-send" type="submit">Send</button>
+  </form>
+</section>
+
+<script src="chatbot.js" defer></script>
+</body>
+</html>
